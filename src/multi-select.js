@@ -11,8 +11,7 @@ export default class MultiSelect extends DomHelper {
             this.options.items = this._sortItems(options.items);
         }
 
-        options.current = this._convertItems(options.current || []);
-        this.options.items = this._convertItems(options.items, options.current);
+        this.options.items = this._convertItems(options.items, options.current || []);
 
         this._renderInit();
 
@@ -135,14 +134,13 @@ export default class MultiSelect extends DomHelper {
      * @private
      */
     _renderInit() {
-        let wrap = d.createElement('div');
-        wrap.className = 'si-wrap';
+        let frag = d.createDocumentFragment();
 
-        this.dom.el.classList.add('si-off');
-        this.dom.result = wrap.appendChild(this._renderResultDiv());
+        this.dom.el.classList.add('si-off', 'si-wrap');
+        this.dom.result = frag.appendChild(this._renderResultDiv());
 
-        wrap.appendChild(this._renderList());
-        return this.dom.el.appendChild(wrap);
+        frag.appendChild(this._renderList());
+        return this.dom.el.appendChild(frag);
     }
 
     /**
