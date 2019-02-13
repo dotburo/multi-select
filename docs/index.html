@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MultiSelect</title>
+    <link href="base.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body, html {
+            margin: 0;
+            height: 100%;
+            font: 17px/1.2 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #26242f;
+            color: #fff;
+        }
+        .demo {
+            width: 100%; height: 70%;
+            display: table;
+        }
+        .demo-inner {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .multi-select {
+            width: 350px;
+            margin: 0 auto;
+        }
+        h1 {
+            width: 350px;
+            margin: 0 auto 1em auto;
+            border-bottom: 2px solid;
+            padding-bottom: .3em;
+        }
+        .si-result {
+            padding: .5em .7em;
+            font: inherit;
+            background: transparent;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+        .si-hide .si-result {
+            border-radius: 3px;
+        }
+        .si-list {
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+<div class="demo">
+    <div class="demo-inner">
+        <h1>MultiSelect.js</h1>
+        <div class="multi-select"></div>
+    </div>
+</div>
+<script src="multi-select-umd.js"></script>
+<script>
+    var multiSelect = new MultiSelect('.multi-select', {
+        items: ['Art Blakey', 'Charlie Parker', 'Sarah Vaughan', 'Sonny Rollins', 'Miles Davis', 'Max Roach'],
+        current: ['Art Blakey', 'Sarah Vaughan']
+    });
+    multiSelect.on('change', function (e) {
+        console.log(e.detail, multiSelect.getCurrent());
+    });
+</script>
+</body>
+</html>
