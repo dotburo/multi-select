@@ -2,7 +2,7 @@
 
 Simple multiple &lt;select&gt; box (dropdown) in vanilla Javascript  
 <br>
-[> demo](https://pecuchet.github.io/multi-select/)
+[>_demo](https://pecuchet.github.io/multi-select/)
 
 ## Install with [npm](https://www.npmjs.com/package/@dotburo/multi-select)
 ```
@@ -25,7 +25,7 @@ multiSelect.on('change', e => console.log(multiSelect.getCurrent()));
 
 ## Available options (and their defaults)
 ```
-items: []                           # Array of strings, numbers or objects objects
+items: []                           # Array of strings, numbers or objects
 display: 'value'                    # If an array of objects was passed, the property to use for display in the list
 current: null                       # Items to select upon instantiation
 parent: null                        # Parent element, to 
