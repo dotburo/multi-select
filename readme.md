@@ -1,4 +1,4 @@
-# MultiSelect ![](https://img.shields.io/github/tag/pecuchet/multi-select.svg?label=version&style=flat) [![Maintainability](https://api.codeclimate.com/v1/badges/d97692a882ba7d6d2b78/maintainability)](https://codeclimate.com/github/pecuchet/multi-select/maintainability)
+# MultiSelect ![](https://img.shields.io/github/tag/pecuchet/multi-select.svg?label=version&style=flat) [![Maintainability](https://api.codeclimate.com/v1/badges/5cd3d1910b240b72005c/maintainability)](https://codeclimate.com/github/pecuchet/multi-select/maintainability)
 
 Simple multiple &lt;select&gt; box (dropdown) in vanilla Javascript  
 <br>
