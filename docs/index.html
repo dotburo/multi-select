@@ -60,11 +60,12 @@
 <script>
     var multiSelect = new MultiSelect('.multi-select', {
         items: ['Art Blakey', 'Charlie Parker', 'Sarah Vaughan', 'Sonny Rollins', 'Miles Davis', 'Max Roach'],
-        current: ['Art Blakey', 'Sarah Vaughan']
+        current: ['Art Blakey']
     });
     multiSelect.on('change', function (e) {
         console.log(e.detail, multiSelect.getCurrent());
     });
+    multiSelect.setCurrent('Sarah Vaughan');
 </script>
 </body>
 </html>

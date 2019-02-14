@@ -60,6 +60,9 @@ Get all the items in the list as an array of objects
 
 ### instance.getCurrent(): array
 Return the currently selected items
+
+### instance.setCurrent(): void
+Programmatically set the currently selected items
  
 ### instance.findItem(value): object
 Find an item in the list by its value (`String|Number`)
