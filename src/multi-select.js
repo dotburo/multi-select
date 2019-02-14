@@ -11,7 +11,14 @@ export default class MultiSelect extends DomHelper {
             this.options.items = this._sortItems(options.items);
         }
 
-        this.options.items = this._convertItems(options.items, options.current || []);
+        this.options.items = options.items && options.items.length
+            ? this._convertItems(options.items)
+            : [];
+
+        if (options.current && options.current.length) {
+            options.current = this._convertItems(options.current);
+            this._setSelected(options.current);
+        }
 
         this._renderInit();
 
@@ -39,6 +46,7 @@ export default class MultiSelect extends DomHelper {
     /**
      * Get all items in the list
      * @return {Object[]}
+     * @public
      */
     getItems() {
         return Array.from(this.options.items.values());
@@ -47,15 +55,41 @@ export default class MultiSelect extends DomHelper {
     /**
      * Return the current field value object
      * @return {[]|null}
+     * @public
      */
     getCurrent() {
         return this.getItems().filter(item => item.selected);
     }
 
     /**
+     * @todo do better: setCurrent, _setCurrent & _setSelected ...
+     * @param {*|!object} currents
+     * @public
+     */
+    setCurrent(currents) {
+        let items = this.options.items,
+            display = this.options.display;
+
+        currents = Array.isArray(currents) ? currents : [currents];
+        currents = this._convertItems(currents);
+
+        currents.forEach(current => {
+            items.forEach((item, key) => {
+                if (item[display] === current[display]) {
+                    this.dom.el.querySelector(`.si-item[data-key="${key}"]`).classList.add('si-selected');
+                    item.selected = true;
+                }
+            });
+        });
+
+        this._setResultMessage();
+    }
+
+    /**
      * Find an item in the list
      * @param {HTMLElement|String|Number} item
      * @return {{}}
+     * @public
      */
     findItem(item) {
         let display = this.options.display;
@@ -65,22 +99,41 @@ export default class MultiSelect extends DomHelper {
 
     /**
      *
-     * @param e
+     * @param {Event} e
+     * @param {boolean} trigger
      * @private
      */
-    _setCurrent(e) {
+    _setCurrent(e, trigger = true) {
         let el = e.target,
             key = parseInt(el.dataset.key, 10),
             item = this.options.items.get(key);
 
         item.selected = el.classList.toggle('si-selected');
         this.options.items.set(key, item);
-        this._trigger('change', item);
+        if (trigger) this._trigger('change', item);
         return this;
     }
 
     /**
-     *
+     * Loop over the passed array to set selected items
+     * @param {array} currents
+     * @private
+     */
+    _setSelected(currents) {
+        let items = this.options.items,
+            display = this.options.display;
+
+        currents.forEach(current => {
+            items.forEach(item => {
+                if (item[display] === current[display]) {
+                    item.selected = true;
+                }
+            });
+        });
+    }
+
+    /**
+     * Display selection result message
      * @private
      */
     _setResultMessage() {
@@ -108,20 +161,16 @@ export default class MultiSelect extends DomHelper {
      * Make an array of object if needed
      * @todo better 'selected' checking: what if `current` is array of objects
      * @param {Array} items
-     * @param {*} current
      * @return {Map<Object>}
      * @private
      */
-    _convertItems(items = [], current = null) {
+    _convertItems(items = []) {
         let display = this.options.display,
             map = new Map(),
             key = 0;
 
         items.forEach(item => {
-            if (typeof item !== 'object') {
-                item = {[display]: item};
-            }
-            item.selected = item[display] === current || current.indexOf(item[display]) > -1;
+            if (typeof item !== 'object') item = {[display]: item};
             map.set(key++, item);
         });
 
