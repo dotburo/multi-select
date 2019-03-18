@@ -13,7 +13,7 @@
     display: block;
     content: '';
     border-style: solid;
-    border-color: #888 transparent transparent transparent;
+    border-color: rgba(255, 255, 255, .3) transparent transparent transparent;
     border-width: 5px;
     margin-top: -2.5px;
     pointer-events: none;
@@ -53,7 +53,7 @@
 .si-selected:after {
     position: absolute; right: 1em;
     content: '✔';
-    color: limegreen;
+    color: #fff;
 }
 .si-off .si-list {
     display: none;

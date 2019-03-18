@@ -33,7 +33,8 @@ maxHeight: 0                        # Maximum height of the dropdown, `0` means 
 sort: true                          # Whether to sort the list
 order: 'desc'                       # Sort order
 placeHolder: 'Select items'         # Place holder text for when nothing is selected
-more: '(+{X} more)'                 # Text for selections > 1; `{X}` will be replaced with current count
+more: '(+{X} more)'                 # Place holder multiple selections; `{X}` will be replaced with current count;
+                                    # if `{X}` is not present, `more` will replace the whole placeholder
 ```
 
 ## Event listening
@@ -58,8 +59,9 @@ Return MultiSelect's outermost element
 ### instance.getItems(): array
 Get all the items in the list as an array of objects
 
-### instance.getCurrent(): array
-Return the currently selected items
+### instance.getCurrent(string key): array
+Return the currently selected items; if a `key` is passed, it will be used to return only the matching value of each
+item object.
 
 ### instance.setCurrent(): void
 Programmatically set the currently selected items

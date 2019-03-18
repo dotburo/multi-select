@@ -54,11 +54,13 @@ export default class MultiSelect extends DomHelper {
 
     /**
      * Return the current field value object
+     * @param {string} key Only return a specific value from each current item
      * @return {[]|null}
      * @public
      */
-    getCurrent() {
-        return this.getItems().filter(item => item.selected);
+    getCurrent(key = '') {
+        let items = this.getItems().filter(i => i.selected);
+        return !key ? items : items.map(i => i[key]);
     }
 
     /**
@@ -150,7 +152,9 @@ export default class MultiSelect extends DomHelper {
                 result = this.options.placeholder;
                 break;
             default:
-                result = `${selection[0][display]} ${this.options.more.replace('{X}', count - 1)}`;
+                result = /({X})/.test(this.options.more)
+                    ? `${selection[0][display]} ${this.options.more.replace('{X}', count - 1)}`
+                    : this.options.more;
         }
 
         this.dom.result.classList[count ? 'add' : 'remove']('si-selection');

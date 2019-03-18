@@ -1,6 +1,6 @@
 {
   "name": "@dotburo/multi-select",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "Lightweight & dynamic select dropdown with an input field, without dependencies",
   "main": "dist/multi-select-min.js",
   "module": "src/multi-select.js",
@@ -17,7 +17,7 @@
     "url": "git+https://github.com/pecuchet/multi-select.git"
   },
   "keywords": [
-    "vanilla-js",
+    "vanilla-javascript",
     "select",
     "input",
     "dropdown",
