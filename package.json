@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pecuchet/multi-select.git"
+    "url": "git+https://github.com/dotburo/multi-select.git"
   },
   "keywords": [
     "vanilla-javascript",
@@ -27,9 +27,9 @@
   "author": "dotburo <code@dotburo.org> (https://dotburo.org)",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/pecuchet/multi-select/issues"
+    "url": "https://dotburo.github.io/multi-select/issues"
   },
-  "homepage": "https://github.com/pecuchet/multi-select#readme",
+  "homepage": "https://dotburo.github.io/multi-select/#readme",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/polyfill": "^7.2.5",

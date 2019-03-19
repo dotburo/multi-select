@@ -1,8 +1,8 @@
-# MultiSelect ![](https://img.shields.io/github/tag/pecuchet/multi-select.svg?label=version&style=flat) [![Maintainability](https://api.codeclimate.com/v1/badges/5cd3d1910b240b72005c/maintainability)](https://codeclimate.com/github/pecuchet/multi-select/maintainability)
+# MultiSelect ![](https://img.shields.io/github/tag/dotburo/multi-select.svg?label=version&style=flat) [![Maintainability](https://api.codeclimate.com/v1/badges/a6b67aa8816ee5964a1f/maintainability)](https://codeclimate.com/github/dotburo/multi-select/maintainability)
 
 Simple multiple &lt;select&gt; box (dropdown) in vanilla Javascript  
 <br>
-[>_demo](https://pecuchet.github.io/multi-select/)
+<a href="https://dotburo.github.io/multi-select/" target="_blank" rel="noopener">&rsaquo;_&thinsp;demo</a>
 
 ## Install with [npm](https://www.npmjs.com/package/@dotburo/multi-select)
 ```
