@@ -6,7 +6,7 @@ Simple multiple &lt;select&gt; box (dropdown) in vanilla Javascript
 
 ## Install with [npm](https://www.npmjs.com/package/@dotburo/multi-select)
 ```
-npm i -D @dotburo/multi-select
+npm i -P @dotburo/multi-select
 ```
 
 
