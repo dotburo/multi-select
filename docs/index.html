@@ -23,6 +23,18 @@
             display: table-cell;
             vertical-align: middle;
         }
+        .examples {
+            display: flex;
+            justify-content: center;
+        }
+        .examples > .example {
+            width: 350px;
+            margin-right: 50px;
+        }
+        .example > small {
+            display: block;
+            margin-bottom: .5em;
+        }
         .multi-select {
             width: 350px;
             margin: 0 auto;
@@ -53,19 +65,37 @@
 <div class="demo">
     <div class="demo-inner">
         <h1>MultiSelect.js</h1>
-        <div class="multi-select"></div>
+        <div class="examples">
+            <div class="example">
+                <small>Example 1</small>
+                <div class="multi-select-1"></div>
+            </div>
+            <div class="example">
+                <small>Example 2</small>
+                <div class="multi-select-2"></div>
+            </div>
+        </div>
     </div>
 </div>
 <script src="multi-select-umd.js"></script>
 <script>
-    var multiSelect = new MultiSelect('.multi-select', {
+    // import MultiSelect from '../src/multi-select.js';
+    var multiSelect1 = new MultiSelect('.multi-select-1', {
         items: ['Art Blakey', 'Charlie Parker', 'Sarah Vaughan', 'Sonny Rollins', 'Miles Davis', 'Max Roach'],
         current: ['Art Blakey'],
     });
-    multiSelect.on('change', function (e) {
-        console.log(e.detail, multiSelect.getCurrent('value'));
+    multiSelect1.on('change', function (e) {
+        console.log(e.detail, multiSelect1.getCurrent('value'));
     });
-    multiSelect.setCurrent('Sarah Vaughan');
+    multiSelect1.setCurrent('Sarah Vaughan');
+
+    var multiSelect2 = new MultiSelect('.multi-select-2', {
+        placeholder: 'Select filmmakers',
+        items: ['Hou Hsiao-hsien', 'Wang Bing', 'Wong Kar-wai', 'Jia Zhangke'],
+    });
+    multiSelect2.on('change', function (e) {
+        console.log(e.detail, multiSelect2.getCurrent('value'));
+    });
 </script>
 </body>
 </html>

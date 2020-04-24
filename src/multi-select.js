@@ -32,14 +32,20 @@ export default class MultiSelect extends DomHelper {
      * @private
      */
     _bindEvents() {
-        this.on('keyup', e => {
-            if (e.key === 'Escape' || e.keyCode === 27) this.toggle(false);
-        }, d);
-
+        // Select or just unfold the options
         this.on('click', e => {
             if (e.target.classList.contains('si-item')) return this._setCurrent(e)._setResultMessage();
-            if (!this.dom.el.contains(e.target)) return this.toggle(false);
             this.toggle();
+        }, this.el);
+
+        // Close the dropdown if the user click outside of it
+        this.on('click', e => {
+            if (!this.dom.el.contains(e.target)) return this.toggle(false);
+        }, d);
+
+        // Fold up the dropdown if the user presses the Escape key
+        this.on('keyup', e => {
+            if (e.key === 'Escape' || e.keyCode === 27) this.toggle(false);
         }, d);
     }
 
