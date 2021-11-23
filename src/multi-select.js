@@ -75,10 +75,16 @@ export default class MultiSelect extends DomHelper {
      * @public
      */
     setCurrent(currents) {
+        const isArray = Array.isArray(currents);
+
+        if (!currents || (isArray && !currents.length)) {
+            return;
+        }
+
         let items = this.options.items,
             display = this.options.display;
 
-        currents = Array.isArray(currents) ? currents : [currents];
+        currents = isArray ? currents : [currents];
         currents = this._convertItems(currents);
 
         currents.forEach(current => {

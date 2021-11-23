@@ -5,11 +5,11 @@
   "main": "dist/multi-select-min.js",
   "module": "src/multi-select.js",
   "scripts": {
-    "build": "npm run build:js && npm run build:babel && npm run build:css && npm run copy:docs",
+    "copy:docs": "cp ./dist/multi-select-umd.js ./docs && cp ./dist/base.min.css ./docs",
     "build:js": "rollup -c",
     "build:css": "cleancss -o dist/base.min.css src/base.css",
     "build:babel": "rollup --config rollup.config-babel.js",
-    "copy:docs": "cp ./dist/multi-select-umd.js ./docs && cp ./dist/base.min.css ./docs",
+    "prod": "npm run build:js && npm run build:babel && npm run build:css && npm run copy:docs",
     "watch": "rollup -c -w"
   },
   "repository": {
